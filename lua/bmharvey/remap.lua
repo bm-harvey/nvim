@@ -37,7 +37,6 @@ vim.keymap.set("i", "<C-y>", vim.cmd.redo)
 vim.keymap.set("n", "<C-y>", vim.cmd.redo)
 vim.keymap.set("v", "<C-y>", vim.cmd.redo)
 
-
 vim.keymap.set("i", "<C-Right>", "<S-Right>")
 vim.keymap.set("n", "<C-Right>", "<S-Right>")
 vim.keymap.set("v", "<C-Right>", "<S-Right>")
