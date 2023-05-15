@@ -31,3 +31,6 @@ vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 
 vim.opt.confirm = true
+
+-- vim.cmd "set list"
+vim.cmd "set listchars=tab:>-,trail:*,extends:>,precedes:<"
