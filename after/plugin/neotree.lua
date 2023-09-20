@@ -1,13 +1,26 @@
 vim.keymap.set("n", "<C-n>", ":Neotree toggle position=right<CR>")
 require("neo-tree").setup({
-    close_if_last_window = false,     -- Close Neo-tree if it is the last window left in the tab
+    event_handlers = {
+
+        {
+            event = "file_opened",
+            handler = function(file_path)
+                -- auto close
+                -- vimc.cmd("Neotree close")
+                -- OR
+                require("neo-tree.command").execute({ action = "close" })
+            end
+        },
+
+    },
+    close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
     popup_border_style = "rounded",
     enable_git_status = true,
     enable_diagnostics = true,
-    enable_normal_mode_for_inputs = false,                                 -- Enable normal mode for input dialogs.
-    open_files_do_not_replace_types = { "terminal", "trouble", "qf" },     -- when opening files, do not use windows containing these filetypes or buftypes
-    sort_case_insensitive = true,                                          -- used when sorting files and directories in the tree
-    sort_function = nil,                                                   -- use a custom function for sorting files and directories in the tree
+    enable_normal_mode_for_inputs = false,                             -- Enable normal mode for input dialogs.
+    open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
+    sort_case_insensitive = true,                                      -- used when sorting files and directories in the tree
+    sort_function = nil,                                               -- use a custom function for sorting files and directories in the tree
     default_component_configs = {
         container = {
             enable_character_fade = true
@@ -65,7 +78,7 @@ require("neo-tree").setup({
     -- see `:h neo-tree-custom-commands-global`
     commands = {},
     window = {
-        position = "right",
+        position = "right", -- left, right, top, bottom,
         width = 35,
         mapping_options = {
             noremap = true,
@@ -142,17 +155,17 @@ require("neo-tree").setup({
             },
         },
         follow_current_file = {
-            enabled = false,                      -- This will find and focus the file in the active buffer every time
+            enabled = false,                    -- This will find and focus the file in the active buffer every time
             --               -- the current file is changed while the tree is open.
-            leave_dirs_open = false,              -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+            leave_dirs_open = false,            -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
-        group_empty_dirs = false,                 -- when true, empty folders will be grouped together
-        hijack_netrw_behavior = "open_default",   -- netrw disabled, opening a directory opens neo-tree
+        group_empty_dirs = false,               -- when true, empty folders will be grouped together
+        hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
         -- in whatever position is specified in window.position
         -- "open_current",  -- netrw disabled, opening a directory opens within the
         -- window like netrw would, regardless of window.position
         -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-        use_libuv_file_watcher = false,   -- This will use the OS level file watchers to detect changes
+        use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
         -- instead of relying on nvim autocmd events.
         window = {
             mappings = {
@@ -176,7 +189,7 @@ require("neo-tree").setup({
             },
         },
 
-        commands = {}   -- Add a custom command or override a global one using the same function name
+        commands = {} -- Add a custom command or override a global one using the same function name
     },
     buffers = {
         follow_current_file = {

@@ -18,6 +18,14 @@ return require('packer').startup(function(use)
     use { 'nvim-treesitter/nvim-treesitter-context' }
     use { "nvim-tree/nvim-web-devicons" }
 
+    use { "folke/twilight.nvim",
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        }
+    }
+
     use {
         "nvim-telescope/telescope-file-browser.nvim",
         requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
@@ -112,5 +120,4 @@ return require('packer').startup(function(use)
 
     -- sybmols outline
     use { 'simrat39/symbols-outline.nvim' }
-
 end)

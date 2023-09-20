@@ -18,6 +18,15 @@ vim.keymap.set("i", "<M-Up>", "<Esc>:m .-2<CR>==gi")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+--vim.keymap.set("n", "j", "jzzzv")
+--vim.keymap.set("n", "<Down>", "jzzzv")
+--vim.keymap.set("n", "k", "kzzzv")
+--vim.keymap.set("n", "<Up>", "kzzzv")
+--vim.keymap.set("v", "j", "jzz")
+--vim.keymap.set("v", "<Down>", "jzz")
+--vim.keymap.set("v", "k", "kzz")
+--vim.keymap.set("v", "<Up>", "kzz")
+
 vim.keymap.set("i", "<C-s>", vim.cmd.update)
 vim.keymap.set("n", "<C-s>", vim.cmd.update)
 vim.keymap.set("v", "<C-s>", vim.cmd.update)
@@ -52,3 +61,4 @@ vim.keymap.set("i", "<C-H>", " <C-o>cb")
 vim.keymap.set("i", "<C-Del>", "<C-o>dw")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
+
