@@ -158,3 +158,11 @@ require('trouble').setup {
     width = 80,
     height = 10,
 }
+
+--
+-- Gitsigns
+--
+require('gitsigns').setup({
+    numhl = true,
+    --linehl = true,
+})
