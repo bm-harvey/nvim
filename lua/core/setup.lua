@@ -113,14 +113,14 @@ lsp_zero.setup()
 
 lsp_zero.on_attach(function(_client, bufnr)
     local opts = { buffer = bufnr, remap = false }
-    map.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+    map.set("n", "gd", function()
+        vim.lsp.buf.definition()
+    end, opts)
 
     map.set("n", "K", function()
-        print("test hover")
         vim.lsp.buf.hover()
     end)
 
-    --map.set("n", "K", function() vim.lsp.buf.hover() end, opts)
 
     map.set({ 'n', 'x', 'i' }, '<C-k>', function()
         vim.lsp.buf.format({ async = true, timeout_ms = 1000 })
@@ -143,12 +143,8 @@ cmp.setup({
     }
 })
 
-
-
-
 -- Fidget
 require('fidget').setup()
-
 
 --Trouble
 vim.keymap.set("n", "<C-e>", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, })

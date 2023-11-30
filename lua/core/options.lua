@@ -16,8 +16,9 @@ o.signcolumn = "yes"
 o.scrolloff = 3
 o.confirm = true
 
-vim.cmd "let g:netrw_liststyle = 1"
+vim.cmd "let g:netrw_liststyle = 0"
 vim.cmd "let g:netrw_banner = 0"
 vim.cmd "let g:netrw_browse_split = 0"
 vim.cmd "let g:netrw_winsize = 25"
 vim.cmd "let g:netrw_altv = 1"
+vim.cmd "let g:netrw_sort_by = 'exten'"
