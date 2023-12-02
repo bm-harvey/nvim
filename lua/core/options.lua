@@ -22,3 +22,5 @@ vim.cmd "let g:netrw_browse_split = 0"
 vim.cmd "let g:netrw_winsize = 25"
 vim.cmd "let g:netrw_altv = 1"
 vim.cmd "let g:netrw_sort_by = 'exten'"
+
+vim.cmd "highlight Search guibg=guibg guifg=guifg gui=italic,underline,bold"

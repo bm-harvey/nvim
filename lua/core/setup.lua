@@ -121,6 +121,10 @@ lsp_zero.on_attach(function(_client, bufnr)
         vim.lsp.buf.hover()
     end)
 
+    map.set("n", "<C-e>", function() vim.diagnostic.goto_next() end, opts)
+    map.set("n", "<C-r>", function() vim.diagnostic.goto_prev() end, opts)
+
+
 
     map.set({ 'n', 'x', 'i' }, '<C-k>', function()
         vim.lsp.buf.format({ async = true, timeout_ms = 1000 })
@@ -147,17 +151,17 @@ cmp.setup({
 require('fidget').setup()
 
 --Trouble
-vim.keymap.set("n", "<C-e>", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, })
-vim.keymap.set("i", "<C-e>", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, })
-vim.keymap.set("v", "<C-e>", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, })
-vim.keymap.set("n", "<S-e>", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, })
-vim.keymap.set("n", "<S-TAB>", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, })
+--vim.keymap.set("n", "<C-e>", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, })
+--vim.keymap.set("i", "<C-e>", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, })
+--vim.keymap.set("v", "<C-e>", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, })
+--vim.keymap.set("n", "<S-e>", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, })
+--vim.keymap.set("n", "<S-TAB>", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, })
 
-require('trouble').setup {
-    position = "bottom",
-    width = 80,
-    height = 10,
-}
+--require('trouble').setup {
+--position = "bottom",
+--width = 80,
+--height = 10,
+--}
 
 --
 -- Gitsigns
