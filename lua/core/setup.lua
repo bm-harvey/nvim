@@ -170,3 +170,5 @@ require('gitsigns').setup({
     numhl = true,
     --linehl = true,
 })
+
+vim.cmd "highlight Search guibg=guibg guifg=guifg gui=italic,underline,bold"

@@ -36,8 +36,16 @@ map.set("i", "<C-n>",vim.cmd.Ex )
 map.set("n", "<C-n>",vim.cmd.Ex )
 map.set("v", "<C-n>",vim.cmd.Ex )
 
--- <C-H> is backspace
+-- <C-H> is backspace 
 map.set("i", "<C-H>", " <C-o>cb")
 map.set("i", "<C-Del>", "<C-o>dw")
 
 map.set("i", "<C-c>", "<Esc>")
+
+vim.keymap.set("v", "(", "<Esc>:'<,'>s/\\%V.*\\%V./(\\0)/<CR>gvll")
+vim.keymap.set("v", "{", "<Esc>:'<,'>s/\\%V.*\\%V./{\\0}/<CR>gvll")
+vim.keymap.set("v", "[", "<Esc>:'<,'>s/\\%V.*\\%V./[\\0]/<CR>gvll")
+vim.keymap.set("v", "<", "<Esc>:'<,'>s/\\%V.*\\%V./<\\0>/<CR>gvll")
+vim.keymap.set("v", "\"", "<Esc>:'<,'>s/\\%V.*\\%V./\"\\0\"/<CR>gvll")
+vim.keymap.set("v", "'", "<Esc>:'<,'>s/\\%V.*\\%V./'\\0'/<CR>gvll")
+vim.keymap.set("v", "|", "<Esc>:'<,'>s/\\%V.*\\%V./|\\0|/<CR>gvll")

@@ -11,6 +11,8 @@ o.expandtab = true
 o.relativenumber = true
 o.number = true
 o.smartindent = true
+o.ignorecase = true
+o.smartcase = true
 
 o.signcolumn = "yes"
 o.scrolloff = 3
