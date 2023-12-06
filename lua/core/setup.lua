@@ -124,6 +124,13 @@ lsp_zero.on_attach(function(_client, bufnr)
     map.set("n", "<C-e>", function() vim.diagnostic.goto_next() end, opts)
     map.set("n", "<C-r>", function() vim.diagnostic.goto_prev() end, opts)
 
+    map.set("n", "<C-z>", function()
+        echo "test"
+        vim.lsp.stop() 
+    end, opts)
+
+    --map.set("n", "<C-3>", function() vim.lsp.start() end, opts)
+
 
 
     map.set({ 'n', 'x', 'i' }, '<C-k>', function()
