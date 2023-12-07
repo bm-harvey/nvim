@@ -18,6 +18,8 @@ o.signcolumn = "yes"
 o.scrolloff = 3
 o.confirm = true
 
+o.wrap = false
+
 vim.cmd "let g:netrw_liststyle = 0"
 vim.cmd "let g:netrw_banner = 0"
 vim.cmd "let g:netrw_browse_split = 0"

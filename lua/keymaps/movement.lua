@@ -14,13 +14,13 @@ map.set("n", "<M-Up>", ":m .-2<CR>==")
 map.set("i", "<M-Down>", "<Esc>:m .+1<CR>==gi")
 map.set("i", "<M-Up>", "<Esc>:m .-2<CR>==gi")
 
--- jump 5 lines pretty quick 
-map.set("v", "<C-Down>", "5j")
-map.set("n", "<C-Down>", "5j")
-map.set("i", "<C-Down>", "5j")
-map.set("v", "<C-Up>", "5k")
-map.set("n", "<C-Up>", "5k")
-map.set("i", "<C-Up>", "5k")
+-- jump 20 lines pretty quick 
+map.set("v", "<C-Down>", "20j")
+map.set("n", "<C-Down>", "20j")
+map.set("i", "<C-Down>", "20j")
+map.set("v", "<C-Up>", "20k")
+map.set("n", "<C-Up>", "20k")
+map.set("i", "<C-Up>", "20k")
 
 map.set("i", "<C-s>", vim.cmd.update)
 map.set("n", "<C-s>", vim.cmd.update)

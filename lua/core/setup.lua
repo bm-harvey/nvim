@@ -27,8 +27,10 @@ require("nvim-treesitter.configs").setup({
 --
 require("lualine").setup {
     options = {
-        icons_enabled = true,
-        theme = 'auto'
+        icons_enabled = false,
+        theme = 'auto',
+        section_separators = {left = ' ', right = ' '},
+        component_separators = {left = '  ', right = '-'},
     }
 }
 
@@ -69,11 +71,18 @@ require("nvim-lastplace").setup({})
 --
 local lsp_zero = require('lsp-zero')
 
+--lsp_zero.set_sign_icons({
+    --error = '✘',
+    --warn = '▲',
+    --hint = '⚑',
+    --info = '»'
+--})
+
 lsp_zero.set_sign_icons({
-    error = '✘',
-    warn = '▲',
-    hint = '⚑',
-    info = '»'
+    error = 'E',
+    warn = 'W',
+    hint = 'H',
+    info = 'I'
 })
 
 require('mason').setup({})
