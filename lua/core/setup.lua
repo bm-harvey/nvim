@@ -1,6 +1,28 @@
 --
 -- Colorscheme
 --
+require('onedark').setup({
+    style = 'warmer',
+    --style = 'deep',
+
+    code_style = {
+        comments = 'none',
+    },
+
+    diagnostics = {
+        darker = true,
+        undercurl = true,
+        background = true,
+    },
+
+    --colors = {
+    --my_grey = "#00ff00"
+    --},
+    --highlights = {
+    --["@comments"] = { fg = '$my_grey' }
+
+    --}
+})
 require("onedark").load()
 
 --
@@ -29,8 +51,8 @@ require("lualine").setup {
     options = {
         icons_enabled = false,
         theme = 'auto',
-        section_separators = {left = ' ', right = ' '},
-        component_separators = {left = '  ', right = '-'},
+        section_separators = { left = ' ', right = ' ' },
+        component_separators = { left = '  ', right = '-' },
     }
 }
 
@@ -72,10 +94,10 @@ require("nvim-lastplace").setup({})
 local lsp_zero = require('lsp-zero')
 
 --lsp_zero.set_sign_icons({
-    --error = '✘',
-    --warn = '▲',
-    --hint = '⚑',
-    --info = '»'
+--error = '✘',
+--warn = '▲',
+--hint = '⚑',
+--info = '»'
 --})
 
 lsp_zero.set_sign_icons({
@@ -120,7 +142,7 @@ lsp_zero.preset('recommended')
 
 lsp_zero.setup()
 
-lsp_zero.on_attach(function(_client, bufnr)
+lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
     map.set("n", "gd", function()
         vim.lsp.buf.definition()
@@ -133,14 +155,14 @@ lsp_zero.on_attach(function(_client, bufnr)
     map.set("n", "<C-e>", function() vim.diagnostic.goto_next() end, opts)
     map.set("n", "<C-r>", function() vim.diagnostic.goto_prev() end, opts)
 
+    map.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
+
     map.set("n", "<C-z>", function()
         echo "test"
-        vim.lsp.stop() 
+        vim.lsp.stop()
     end, opts)
 
     --map.set("n", "<C-3>", function() vim.lsp.start() end, opts)
-
-
 
     map.set({ 'n', 'x', 'i' }, '<C-k>', function()
         vim.lsp.buf.format({ async = true, timeout_ms = 1000 })
@@ -164,7 +186,7 @@ cmp.setup({
 })
 
 -- Fidget
-require('fidget').setup()
+--require('fidget').setup()
 
 --Trouble
 --vim.keymap.set("n", "<C-e>", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, })
@@ -183,8 +205,36 @@ require('fidget').setup()
 -- Gitsigns
 --
 require('gitsigns').setup({
-    numhl = true,
+    --numhl = true,
     --linehl = true,
 })
 
 vim.cmd "highlight Search guibg=guibg guifg=guifg gui=italic,underline,bold"
+
+
+--
+-- Harpoon
+--
+
+local harpoon = require("harpoon")
+
+-- REQUIRED
+harpoon.setup()
+-- REQUIRED
+
+vim.keymap.set("n", "<C-a>", function() harpoon:list():append() end)
+vim.keymap.set("n", "<C-h>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+--vim.keymap.set("n", "<C-1>", function() harpoon:list():select(1) end)
+--vim.keymap.set("n", "<C-2>", function() harpoon:list():select(2) end)
+--vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
+--vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
+--
+--
+
+-- Markdown
+vim.keymap.set("n", "mdp", ":MarkdownPreview<cr>")
+vim.keymap.set("n", "mds", ":MarkdownPreviewStop<cr>")
+vim.keymap.set("n", "mdt", ":MarkdownPreviewToggle<cr>")
+
+vim.cmd("let g:mkdp_markdown_css = 'C:/Users/bmhar/AppData/Local/nvim/lua/core/md.css' ")
+vim.cmd('let g:mkdp_auto_start = 1')

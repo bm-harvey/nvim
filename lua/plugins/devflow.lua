@@ -18,5 +18,10 @@ return {
             -- refer to the configuration section below
         },
     },
-    { "lewis6991/gitsigns.nvim" }
+    { "lewis6991/gitsigns.nvim" },
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = {"nvim-lua/plenary.nvim"}
+    }
 }
